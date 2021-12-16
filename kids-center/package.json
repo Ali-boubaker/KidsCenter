@@ -23,6 +23,7 @@
     "@fortawesome/fontawesome-svg-core": "~1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@ngneat/tailwind": "^7.0.3",
+    "angular": "^1.8.2",
     "express": "^4.17.1",
     "mongoose": "^6.1.2",
     "rxjs": "~7.4.0",
