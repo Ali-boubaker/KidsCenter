@@ -1,24 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core'; 
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-];
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-admin',
@@ -26,12 +10,86 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  user: any;
+  subscription: Subscription;
+  form  : FormGroup;
+  result: any;
+  services: any;
+  events: any;
 
-  constructor() { }
+  constructor(
+    private formAdminSignIn: FormBuilder,
+    private http: HttpClient,
+    private data: DataService,
+  ) { }
 
   ngOnInit(): void {
+    this.form = this.formAdminSignIn.group({
+      username: '',
+      password: ''
+    });
+  }
+
+  isLogged(){
+    // return true;
+    return this.user ? true : false;
+  }
+
+  submit(): void {
+    console.log(this.form.getRawValue());
+    this.http.post('http://localhost:8000/auth/signin', this.form.getRawValue())
+      .subscribe({
+        next: Response => {
+          console.log(Response);
+          this.user = Response;
+          // this.shared.setuser(this.result);
+
+          //get all users
+          this.http.get('http://localhost:8000/user/admin')
+            .subscribe({
+              next: Response => {
+                console.log("users : ", Response);
+                this.services = Response;
+              },
+              error: error => {
+                console.log("error admin users : ", error);
+              }
+            });
+
+          //get all events
+          this.http.get('http://localhost:8000/events')
+            .subscribe({
+              next: Response => {
+                console.log("events : ", Response);
+                this.events = Response;
+              },
+              error: error => {
+                console.log("error admin events : ", error);
+              }
+            });
+        },
+        error: error => {
+          this.result = "Incorrect username/password";
+          console.log(this.result);
+        }
+      });
+  }
+
+  logout() {
+    this.data.changeMessage({
+      category: "",
+      city: "",
+      connect: false,
+      createdAt: "",
+      email: "",
+      password: "",
+      phone: "",
+      updatedAt: "",
+      user_img: "",
+      username: "",
+      __v: 0,
+      _id: "",
+    });
   }
 
 }

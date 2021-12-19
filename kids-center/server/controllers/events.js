@@ -7,6 +7,7 @@ module.exports = {
     try {
       const event = await Events.create({
         eventBy,
+        title,
         location,
         city,
         contact,
