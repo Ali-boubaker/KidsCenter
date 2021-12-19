@@ -4,7 +4,7 @@
                <div class="col-lg-6">
                     <div class="about-text go-to">
                          <h3 class="dark-color">{{provider.fullname}} </h3>
-                         <button routerLink="/profile" type="button" class="btn btn-primary">Go To My Profile</button>
+                         <button *ngIf="isLogged()" routerLink="/profile" type="button" class="btn btn-primary">Go To My Profile</button>
                          <h6 class="theme-color lead">{{provider.title}}</h6>
                          <p> {{provider.description}}</p>
                          <div class="row about-list">
@@ -49,7 +49,7 @@
                </div>
                <div class="col-lg-6">
                     <div class="about-avatar">
-                         <img src={{provider.user_img}} title="" alt="">
+                         <img src={{provider.user_img}} class="profile-img" >
                     </div>
                </div>
           </div>

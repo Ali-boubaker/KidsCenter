@@ -1,4 +1,4 @@
-<section class="section about-section gray-bg" id="about">
+<section *ngIf="isLogged()" class="section about-section gray-bg" id="about">
     <div class="container">
         <div class="row align-items-center flex-row-reverse">
             <div class="col-lg-6">
@@ -49,7 +49,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="about-avatar">
-                    <img src={{user.user_img}} title="" alt="">
+                    <img src={{user.user_img}} class="profile-img">
                 </div>
             </div>
         </div>
@@ -83,3 +83,4 @@
         </div>
     </div>
 </section>
+<img *ngIf="!isLogged()" class="d-flex my-5 mx-auto" src="https://www.pngitem.com/pimgs/m/255-2550411_404-error-images-free-png-transparent-png.png" alt="">

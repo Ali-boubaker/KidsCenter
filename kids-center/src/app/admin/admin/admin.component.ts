@@ -28,11 +28,14 @@ export class AdminComponent implements OnInit {
       username: '',
       password: ''
     });
+
+    this.subscription = this.data.currentMessage.subscribe((message: any) => {
+      this.user = message;
+    });
   }
 
-  isLogged(){
-    // return true;
-    return this.user ? true : false;
+  isLogged() {
+    return this.user.username.length > 0;
   }
 
   submit(): void {

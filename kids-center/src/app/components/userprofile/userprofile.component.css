@@ -17,6 +17,12 @@ img {
     vertical-align: middle;
     border-style: none;
 }
+
+.profile-img{
+  width : 400px !important;
+  height: 400px !important;
+}
+
 /* About Me 
 ---------------------*/
 .about-text h3 {
