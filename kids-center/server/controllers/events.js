@@ -8,6 +8,7 @@ module.exports = {
       const event = await Events.create({
         title,
         eventBy,
+        title,
         location,
         city,
         contact,

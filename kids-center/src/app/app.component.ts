@@ -1,4 +1,5 @@
 import { Component  } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DataService } from './services/data.service';
 import { SharedService } from './shared/shared.service';
@@ -14,8 +15,14 @@ export class AppComponent {
   
 
   constructor(
+
+    // private shared: SharedService,
+    private data  : DataService,
+    private activatedRoute: ActivatedRoute,
+    private route: Router
+
     private shared: SharedService,
-    private data  : DataService
+   
     ) { }
 
   ngOnInit(): void {
@@ -28,6 +35,8 @@ export class AppComponent {
       this.user = message;
       console.log("app component ", this.user);
     });
+
+    this.isAdmin();
   }
 
   isLogged(){
@@ -53,5 +62,7 @@ export class AppComponent {
   }
 
   
-  
+  isAdmin(){
+    return this.route.url === "/admin/index" ? true : false;
+  }
 }

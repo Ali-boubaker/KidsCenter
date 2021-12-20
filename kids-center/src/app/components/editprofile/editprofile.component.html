@@ -1,77 +1,77 @@
-
 <div class="editprofile">
-    <h1>Edit profile</h1>
-    <form [formGroup]="form" (submit)="submit()">
-         <div class="form-row">
-            <div class="pl-sm-4 pl-2" id="img-section"> <b>Profile Photo</b>
-            <div class="d-flex align-items-start py-3 border-bottom"> <img src="https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img" alt="">
-              <button class="btn button border"><b>Upload</b></button>
-                </div>
-            </div>
-              <div class="form-group">
-                   <label for="inputAddress">Full Name</label>
-                   <input formControlName="fullname" type="text" class="form-control" id="inputFullName" placeholder="Full Name">
-              </div>
-              <div class="form-group">
-                   <label for="inputAddress">title</label>
-                   <input formControlName="title" type="text" class="form-control" id="inputtitle" placeholder="title">
-              </div>
-              <div class="form-group">
-                <label for="inputAddress">description</label>
-                <input formControlName="description" type="text" class="form-control" id="inputdescription" placeholder="description">
-             </div>
-              <div class="form-group">
-                <label for="inputAddress">Category</label>
-                <input formControlName="category" type="text" class="form-control" id="input category" placeholder=" category">
-           </div>
-              <div class="form-group">
-                   <label for="inputEmail4">Email</label>
-                   <input formControlName="email" type="email" class="form-control" id="inputEmail4" placeholder="Email">
-              </div>
-              <div class="form-group">
-                   <label for="inputphone4">phone</label>
-                   <input formControlName="phone" type="phone" class="form-control" id="inputphone4" placeholder="phone">
-              </div>
-         </div>
-         <div class="form-group">
-              <label for="inputAddress">Address</label>
-              <input formControlName="adress" type="text" class="form-control" id="inputAddress" placeholder="Tunisie 4000 Ariana">
-         </div>
-         <div class="form-row">
-              <div class="form-group col-md-4">
-                   <label for="inputState">City</label>
-                   <select formControlName="city" id="inputState" class="form-control">
-                        <option value="">City</option>
-                        <option value="Tunis">Tunis</option>
-                        <option value="Ariana">Ariana</option>
-                        <option value="Ben arous">Ben arous</option>
-                        <option value="Manouba">Manouba</option>
-                        <option value="Sousse">Sousse</option>
-                        <option value="Sfax">Sfax</option>
-                        <option value="Gabes">Gabes</option>
-                        <option value="Médenine">Médenine</option>
-                        <option value="Mahdia">Mahdia</option>
-                        <option value="Béja">Béja</option>
-                        <option value="Bizerte">Bizerte</option>
-                        <option value="Gafsa">Gafsa</option>
-                        <option value="Jendouba">Jendouba</option>
-                        <option value="Kairouan">Kairouan</option>
-                        <option value="Kasserine">Kasserine</option>
-                        <option value="Kef">Le Kef</option>
-                        <option value="Monastir">Monastir</option>
-                        <option value="Nabeul">Nabeul</option>
-                        <option value="Sidi Bouzid">Sidi Bouzid</option>
-                        <option value="Siliana">Siliana</option>
-                        <option value="Tataouine">Tataouine</option>
-                        <option value="Tozeur">Tozeur</option>
-                        <option value="Zaghouan">Zaghouan</option>
-                        <option value="Zaghouan">Zaghouan</option>
-                        <option value="Kébili">Kébili</option>
-                   </select>
-              </div>
-         </div>
-         <button type="submit" class="btn btn-primary">submit</button>
-        
-    </form>
-    
+     <h1>Edit profile</h1>
+     <form [formGroup]="form" (submit)="submit()">
+          <div class="form-row">
+               <div class="pl-sm-4 pl-2" id="img-section"> <b>Profile Photo</b>
+                    <div class="d-flex align-items-center py-3 border-bottom"> 
+                         <img *ngIf="previewImg()" src={{previewImg()}} class="img" alt="">
+                         <input formControlName="user_img" type="text" class="form-control mx-3" id="inputProfileImg" placeholder="url img">
+                    </div>
+               </div>
+               <div class="form-group">
+                    <label for="inputAddress">Full Name</label>
+                    <input formControlName="fullname" type="text" class="form-control" id="inputFullName" placeholder="Full Name">
+               </div>
+               <div class="form-group">
+                    <label for="inputAddress">title</label>
+                    <input formControlName="title" type="text" class="form-control" id="inputtitle" placeholder="title">
+               </div>
+               <div class="form-group">
+                    <label for="inputAddress">description</label>
+                    <input formControlName="description" type="text" class="form-control" id="inputdescription" placeholder="description">
+               </div>
+               <div class="form-group">
+                    <label for="inputAddress">Category</label>
+                    <input formControlName="category" type="text" class="form-control" id="input category" placeholder=" category">
+               </div>
+               <div class="form-group">
+                    <label for="inputEmail4">Email</label>
+                    <input formControlName="email" type="email" class="form-control" id="inputEmail4" placeholder="Email">
+               </div>
+               <div class="form-group">
+                    <label for="inputphone4">phone</label>
+                    <input formControlName="phone" type="phone" class="form-control" id="inputphone4" placeholder="phone">
+               </div>
+          </div>
+          <div class="form-group">
+               <label for="inputAddress">Address</label>
+               <input formControlName="adress" type="text" class="form-control" id="inputAddress" placeholder="Tunisie 4000 Ariana">
+          </div>
+          <div class="form-row">
+               <div class="form-group col-md-4">
+                    <label for="inputState">City</label>
+                    <select formControlName="city" id="inputState" class="form-control">
+                         <option value="">City</option>
+                         <option value="Tunis">Tunis</option>
+                         <option value="Ariana">Ariana</option>
+                         <option value="Ben arous">Ben arous</option>
+                         <option value="Manouba">Manouba</option>
+                         <option value="Sousse">Sousse</option>
+                         <option value="Sfax">Sfax</option>
+                         <option value="Gabes">Gabes</option>
+                         <option value="Médenine">Médenine</option>
+                         <option value="Mahdia">Mahdia</option>
+                         <option value="Béja">Béja</option>
+                         <option value="Bizerte">Bizerte</option>
+                         <option value="Gafsa">Gafsa</option>
+                         <option value="Jendouba">Jendouba</option>
+                         <option value="Kairouan">Kairouan</option>
+                         <option value="Kasserine">Kasserine</option>
+                         <option value="Kef">Le Kef</option>
+                         <option value="Monastir">Monastir</option>
+                         <option value="Nabeul">Nabeul</option>
+                         <option value="Sidi Bouzid">Sidi Bouzid</option>
+                         <option value="Siliana">Siliana</option>
+                         <option value="Tataouine">Tataouine</option>
+                         <option value="Tozeur">Tozeur</option>
+                         <option value="Zaghouan">Zaghouan</option>
+                         <option value="Zaghouan">Zaghouan</option>
+                         <option value="Kébili">Kébili</option>
+                    </select>
+               </div>
+          </div>
+          <button type="submit" class="btn btn-primary">submit</button>
+
+     </form>
+
 </div>

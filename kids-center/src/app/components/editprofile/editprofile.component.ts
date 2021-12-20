@@ -39,8 +39,9 @@ export class EditprofileComponent implements OnInit {
       experience:""  
     })
   }
+
   submit(): void {
-   console.log('editprofile user',this.user)
+    console.log('editprofile user',this.user)
     this.http.put(`http://localhost:8000/editprofile/${this.user._id}`, this.form.getRawValue())
     .subscribe({
       next:Response => {
@@ -49,7 +50,10 @@ export class EditprofileComponent implements OnInit {
       },
       error:error   => console.log("error", error)
     });
-    
+  }
+
+  previewImg(){
+    return this.form.getRawValue().user_img;
   }
     
 

@@ -52,4 +52,8 @@ export class UserprofileComponent implements OnInit {
     return false;
   }
 
+  isLogged() {
+    return this.user.username.length > 0;
+  }
+
 }
