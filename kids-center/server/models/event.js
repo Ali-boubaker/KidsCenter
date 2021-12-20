@@ -13,7 +13,7 @@ const eventSchema = mongoose.Schema(
       default:
         "https://www.sleeptasticsolutions.com/wp-content/uploads/2018/05/happy-kids-1.jpg",
     },
-    likes: { type: Number },
+    fees: { type: Number },
     comments:{type:Array ,default:[]},
     description:{ type: String, default: "" }
   },
