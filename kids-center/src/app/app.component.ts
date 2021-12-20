@@ -15,14 +15,10 @@ export class AppComponent {
   
 
   constructor(
-
-    // private shared: SharedService,
     private data  : DataService,
     private activatedRoute: ActivatedRoute,
-    private route: Router
-
+    private route: Router,
     private shared: SharedService,
-   
     ) { }
 
   ngOnInit(): void {
@@ -64,5 +60,9 @@ export class AppComponent {
   
   isAdmin(){
     return this.route.url === "/admin/index" ? true : false;
+  }
+
+  isBanned(){
+    return this.user.connect;
   }
 }

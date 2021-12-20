@@ -31,10 +31,9 @@ module.exports = {
           try {
                console.log("\nRequesting the server to update a specific user into the database ...\n");
                // the server will try the following
-               const user = await User
-                    .findByIdAndUpdate(req.params.userId, req.body, { new: true })
-
-               res.status(200).json(user)
+               const user = await User.findByIdAndUpdate(req.params.userId, req.body, { new: true });
+               const users = await User.find({});
+               res.status(200).json(users)
           } catch (error) {
                next(error);
           }

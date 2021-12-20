@@ -95,4 +95,19 @@ export class AdminComponent implements OnInit {
     });
   }
 
+  banned(user:any){
+    var user = user;
+    user.connect = !user.connect;
+    this.http.put(`http://localhost:8000/user/${user._id}`,user)
+      .subscribe({
+        next: Response => {
+          console.log("users : ", Response);
+          this.services = Response;
+        },
+        error: error => {
+          console.log("error admin users : ", error);
+        }
+      });
+  }
+
 }
