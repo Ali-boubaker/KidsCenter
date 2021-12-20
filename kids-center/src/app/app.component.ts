@@ -15,14 +15,10 @@ export class AppComponent {
   
 
   constructor(
-
-    // private shared: SharedService,
     private data  : DataService,
     private activatedRoute: ActivatedRoute,
-    private route: Router
-
+    private route: Router,
     private shared: SharedService,
-   
     ) { }
 
   ngOnInit(): void {
