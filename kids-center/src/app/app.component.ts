@@ -2,7 +2,7 @@ import { Component  } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DataService } from './services/data.service';
-// import { SharedService } from './shared/shared.service';
+import { SharedService } from './shared/shared.service';
 
 @Component({
   selector: 'app-root',
@@ -15,10 +15,14 @@ export class AppComponent {
   
 
   constructor(
+
     // private shared: SharedService,
     private data  : DataService,
     private activatedRoute: ActivatedRoute,
     private route: Router
+
+    private shared: SharedService,
+   
     ) { }
 
   ngOnInit(): void {
@@ -54,7 +58,9 @@ export class AppComponent {
       __v: 0,
       _id: "",
     });
+    this.shared.setuser({})
   }
+
   
   isAdmin(){
     return this.route.url === "/admin/index" ? true : false;

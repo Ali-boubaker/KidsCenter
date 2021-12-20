@@ -1,19 +1,14 @@
-<H1>Events</H1>
-<div>
-	<mat-form-field appearance="fill">
-
-		<mat-select [(ngModel)]="selectedValue">
-			<mat-option>State</mat-option>
-			<mat-option *ngFor="let state of states" value={{state}}>{{state}}</mat-option>
-		</mat-select>
-	</mat-form-field>
-	<button (click)="onfilter()">filter</button>
+<div class="component">
+<div >
+	<form [formGroup]="form" class="select">
+	<select  formControlName="city" class="form-control" value=""id="exampleInputPassword1"  [(ngModel)]="selectedValue">
+		<option *ngFor="let state of states" value={{state}}>{{state}}</option>
+	</select>
+	<button class="btn btn-primary mx-3" (click)="onfilter()">Filter by State</button>
+	<button *ngIf="user_category()" class="btn btn-primary mx-3" (click)='addPost()'>Add An event</button>	
+</form>
 </div>
-<div>
-	<button (click)='addPost()'>Add An event</button>
-	<button>My Favourite List</button>
-</div>
-
+	
 <div>
 	<section class="home-blog bg-sand">
 		<div class="container">
@@ -21,18 +16,16 @@
 			<div class="row justify-content-md-center">
 				<div class="col-xl-5 col-lg-6 col-md-8">
 					<div class="section-title text-center title-ex1">
-						<h2>Latest News</h2>
-						<p>Inventore cillum soluta inceptos eos platea, soluta class laoreet repellendus imperdiet
-							optio.</p>
+						<h2>Latest Events</h2>
 					</div>
 				</div>
 			</div>
 			<!-- section title ends -->
 			<div >
 			<div class="row" >
-				<div class="col-md-6"*ngFor="let post of posts">
+				<div class="col-md-6 bl"*ngFor="let post of posts">
 					<div class="media blog-media">
-						<a><img class="d-flex"
+						<a><img class='em'
 								src={{post.event_img}}
 								alt="Generic placeholder image"></a>
 						<div class="circle">
@@ -40,17 +33,14 @@
 							<span class="month">{{post.date.slice(5,7)}}</span>
 						</div>
 						<div class="media-body">
-							<a (click)='comments(post)'>{{post.title}}
-								<!-- <h5 class="mt-0">{{post.title}}</h5> -->
-							</a>
-							<!-- {{post.description}} -->
-							<a class="post-link" (click)='comments(post)'>Read More</a>
-							<ul>
-								<li>by: {{post.eventBy}}</li>
+								<h5 (click)='comments(post)'class="mt-0">{{post.title}}</h5>
+							by
+							<h5>{{post.eventBy}}</h5> 
+							<ul>	
 								<li class="text-right"><a (click)='comments(post)'>{{post.comments.length}} comments</a>
+									<a class="post-link" (click)='comments(post)'>Read More</a>
 								</li>
-								<li class="text-right"><a>Add to My fovourite
-										list</a></li>
+								
 							</ul>
 						</div>
 					</div>
@@ -59,4 +49,5 @@
 		</div>
 		</div>
 	</section>
+</div>
 </div>
