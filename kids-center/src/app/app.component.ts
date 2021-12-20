@@ -1,7 +1,7 @@
 import { Component  } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DataService } from './services/data.service';
-// import { SharedService } from './shared/shared.service';
+import { SharedService } from './shared/shared.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ export class AppComponent {
   
 
   constructor(
-    // private shared: SharedService,
+    private shared: SharedService,
     private data  : DataService
     ) { }
 
@@ -49,7 +49,9 @@ export class AppComponent {
       __v: 0,
       _id: "",
     });
+    this.shared.setuser({})
   }
+
   
   
 }
