@@ -5,6 +5,7 @@
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    z-index: 0;
 }
 
 h1,
@@ -27,6 +28,7 @@ p {
 .spacer-right {
     flex: 1;
 }
+
 .container{
     width:50%;
     margin:5%;
@@ -34,6 +36,7 @@ p {
     min-height: 300px;
     background-color: salmon;
 }
+
 .navbar {
     position: relative;
     top: 0;
@@ -87,3 +90,6 @@ p {
     height: 25px;
     border-radius: 50%;
 }
+.c-css-slider {
+	position: relative;
+ }

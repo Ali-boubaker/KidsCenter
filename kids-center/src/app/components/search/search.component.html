@@ -46,7 +46,7 @@
   </div>
     <div class="result"  >
                   <div class="card" style="width: 18rem;" *ngFor="let provider of this.result"  >
-                    <img class="card-img-top" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Card image cap">
+                    <img class="card-img-top" src={{provider.user_img}} alt="Card image cap">
                     <div class="card-body">
                       <ul class="list-group list-group-flush">
                         <li class="list-group-item">{{provider.fullname}}</li>
