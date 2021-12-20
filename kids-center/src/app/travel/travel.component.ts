@@ -6,12 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./travel.component.css']
 })
 export class TravelComponent implements OnInit {
-
-  constructor() {
-    
-   }
+  imageUrl = '';    
+  constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }

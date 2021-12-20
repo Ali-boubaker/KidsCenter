@@ -3,13 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { ForgetComponent } from './components/forget/forget.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { TravelPostComponent } from './travel-post/travel-post.component';
 import { TravelComponent } from './travel/travel.component';
 
 const routes: Routes = [
   {path:'signin', component: SigninComponent},
   {path:'signup', component: SignupComponent},
   {path:'forget', component: ForgetComponent},
-  {path:'travel', component: TravelComponent}
+  {path:'travel', component: TravelComponent},
+  {path:'travel-post', component: TravelPostComponent},
 ];
 
 @NgModule({

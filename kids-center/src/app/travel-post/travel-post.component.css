@@ -1,0 +1,41 @@
+.travel {
+    margin: 5rem;
+}
+.PostTravel{
+    margin-top: 2rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.PostTravel h1{
+    font-weight: 700;
+    color: #fff;
+}
+
+form{
+    padding: 1rem 2rem;
+    background-color: rgb(240, 240, 240);
+    width: 500px;
+    border-radius: 5px;
+    box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.1);
+}
+
+form *{
+    margin: 0.3rem 0;
+}
+
+form button{
+    margin: 0.5rem 1rem 0 0;
+    padding: .2rem 1rem;
+}
+
+form span{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.form-category{
+    font-weight: 500;
+    font-size: 16px;
+}

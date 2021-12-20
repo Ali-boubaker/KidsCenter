@@ -8,6 +8,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { ForgetComponent } from './components/forget/forget.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TravelComponent } from './travel/travel.component';
+import { TravelPostComponent } from './travel-post/travel-post.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TravelComponent } from './travel/travel.component';
     SignupComponent,
     SigninComponent,
     ForgetComponent,
-    TravelComponent
+    TravelComponent,
+    TravelPostComponent
   ],
   imports: [
     BrowserModule,
