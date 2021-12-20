@@ -1,5 +1,6 @@
 
 <!-- Toolbar -->
+<div *ngIf="!isBanned()">
 <div *ngIf="!isAdmin()">
   <div class="navbar" role="banner">
     <img width="40" alt="kid center" src="https://img.icons8.com/cotton/50/000000/christmas-kid-2.png" />
@@ -8,13 +9,30 @@
     <span class="navbar-title" routerLink="/">Home</span>
     <span routerLink="/events" >Events</span>
     <span routerLink="/search" >Search</span>
-    <span routerLink="/result" >Result</span>
     <div class="spacer-right"></div>
     <span routerLink="/profile" *ngIf="isLogged()"><img src={{user.user_img}} class="user-logo" />{{user.username}}</span>
     <span class="navbar-title" routerLink="/signin"  *ngIf="!isLogged()">Sign In</span>
     <span class="navbar-title" routerLink="/" (click)="logout()" *ngIf="isLogged()">Log Out</span>
   </div>
 </div>
-
 <router-outlet></router-outlet>
+</div>
+
+<div id="banned" *ngIf="isBanned()">
+  <div class="txt1">ACCOUNT SUSPENDED</div>
+  <div class="txt2">This account has been suspended.</div>
+  <div id="orbit-system">
+    <div class="system">
+      <div class="satellite-orbit">
+        <div class="satellite">SUSPENDED</div>
+      </div>
+      <div class="planet"><img src="http://orig02.deviantart.net/69ab/f/2013/106/0/4/sad_man_by_agiq-d61wk0d.png"
+          height="200px"> </div>
+    </div>
+  </div>
+  <div class="txt3">For more information please </div>
+  <a href="/">
+    <div class="button">Contact with us</div>
+  </a>
+</div>
 

@@ -59,4 +59,8 @@ export class AppComponent {
   isAdmin(){
     return this.route.url === "/admin/index" ? true : false;
   }
+
+  isBanned(){
+    return this.user.connect;
+  }
 }
