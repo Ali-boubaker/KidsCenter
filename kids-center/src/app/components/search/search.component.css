@@ -1,0 +1,44 @@
+.search{
+    padding: 20px;
+    width: 100%;
+    text-align:center;
+    display: inline-block;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.searchsel{
+height: 27px;
+margin: 0.2%;
+}
+.searchbtn{
+background-color:  rgba(13, 202, 240, 0.7);
+box-shadow: 2px 2px purple;
+}
+.searchinp{
+    margin: 0.2%;
+    border-radius: 10px ;
+    width: 15%;
+}
+body{
+    margin-top:20px;
+    background:#eee;
+    display: inline-flex;
+    justify-content: center ;
+}
+.searchField{
+    margin-top: 2%;
+}
+.result{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 5%;
+    padding-left: 7%;
+    padding-right: 7%;
+    justify-content: space-between;
+}
+.card{
+    margin:2%;
+}

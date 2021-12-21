@@ -1,0 +1,61 @@
+<div class="search">
+  <div class="searchField">
+    <form [formGroup]="form" (submit)="submit()">
+      <input formControlName="fullname" class="searchinp" type="text" value="" />
+      <select formControlName="city" name="City" class="searchsel" value="" size="1">
+        <option value="">City</option>
+        <option value="Tunis">Tunis</option>
+        <option value="Ariana">Ariana</option>
+        <option value="Ben arous">Ben arous</option>
+        <option value="Manouba">Manouba</option>
+        <option value="Sousse">Sousse</option>
+        <option value="Sfax">Sfax</option>
+        <option value="Gabes">Gabes</option>
+        <option value="Médenine">Médenine</option>
+        <option value="Mahdia">Mahdia</option>
+        <option value="Béja">Béja</option>
+        <option value="Bizerte">Bizerte</option>
+        <option value="Gafsa">Gafsa</option>
+        <option value="Jendouba">Jendouba</option>
+        <option value="Kairouan">Kairouan</option>
+        <option value="Kasserine">Kasserine</option>
+        <option value="Kef">Le Kef</option>
+        <option value="Monastir">Monastir</option>
+        <option value="Nabeul">Nabeul</option>
+        <option value="Sidi Bouzid">Sidi Bouzid</option>
+        <option value="Siliana">Siliana</option>
+        <option value="Tataouine">Tataouine</option>
+        <option value="Tozeur">Tozeur</option>
+        <option value="Zaghouan">Zaghouan</option>
+        <option value="Zaghouan">Zaghouan</option>
+        <option value="Kébili">Kébili</option>
+      </select>
+      <select formControlName="specialty" size="1" name="specialty" class="searchsel" value="">
+        <option value="">Specialty</option>
+        <option value="English">English</option>
+        <option value="Français">Français</option>
+        <option value="Arabe">Arabe</option>
+        <option value="Math">Math</option>
+        <option value="Science">Science</option>
+        <option value="Physics">Physics</option>
+        <option value=""></option>
+      </select>
+
+      <button type="submit" class="searchbtn">Search</button>
+    </form>
+  </div>
+    <div class="result"  >
+                  <div class="card" style="width: 18rem;" *ngFor="let provider of this.result"  >
+                    <img class="card-img-top" src={{provider.user_img}} alt="Card image cap">
+                    <div class="card-body">
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{provider.fullname}}</li>
+                        <li class="list-group-item">Specialty : {{provider.specialty}}</li>
+                        <li class="list-group-item">City : {{provider.city}}</li>
+                        <li class="list-group-item">Email : {{provider.email}}</li>
+                        <li class="list-group-item">Phone : {{provider.phone}}</li>
+                      </ul>
+                      <a [routerLink]="['/userprofile', provider._id]" class="btn btn-primary">Profile</a>
+        </div>     
+</div>
+  </div>

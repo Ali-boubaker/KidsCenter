@@ -7,7 +7,8 @@
 }
 .signin h1{
      font-weight: 700;
-     color: #fff;
+     color: rgb(140, 140, 140);
+     margin: 1rem 0;
 }
 
 form{
@@ -30,4 +31,13 @@ form button{
 form span{
      text-decoration: underline;
      cursor: pointer;
+}
+
+.error-form{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: red;
+     font-size: 15px;
+     font-weight: 500;
 }

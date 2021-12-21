@@ -1,0 +1,146 @@
+<div class="admin">
+     <div>
+          <div class="navbar" role="banner">
+               <img width="40" alt="kid center" src="https://img.icons8.com/cotton/50/000000/christmas-kid-2.png" />
+               <span routerLink="/admin/index" class="navbar-title">Admin Panel</span>
+               <div class="spacer"></div>
+               <span *ngIf="isLogged()"><img src={{user.user_img}} class="user-logo" />{{user.username}}</span>
+               <span class="navbar-title" routerLink="/admin/index" *ngIf="!isLogged()">Sign In</span>
+               <span class="navbar-title" routerLink="/admin/index" (click)="logout()" *ngIf="isLogged()">Log Out</span>
+          </div>
+     </div>
+
+     <div *ngIf="isLogged()" id="admin-panel">
+
+          <!-- admin panel  -->
+          <link rel="stylesheet" type="text/css"
+               href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+          <div class="container bootstrap snippets bootdey mt-5">
+
+               <!-- users table -->
+               <div class="row">
+                    <div class="col-lg-12">
+                         <div class="main-box no-header clearfix">
+                              <div class="main-box-body clearfix">
+                                   <div class="table-responsive">
+                                        <table class="table user-list">
+                                             <thead>
+                                                  <tr>
+                                                       <th><span>User</span></th>
+                                                       <th><span>Created</span></th>
+                                                       <th class="text-center"><span>Status</span></th>
+                                                       <th><span>Email</span></th>
+                                                       <th>&nbsp;</th>
+                                                  </tr>
+                                             </thead>
+                                             <tbody>
+
+                                                  <tr *ngFor="let service of services">
+                                                       <td>
+                                                            <img src={{service.user_img}} alt="">
+                                                            <a href="#" class="user-link">{{service.fullname}}</a>
+                                                            <span class="user-subhead">{{service.category}}</span>
+                                                       </td>
+                                                       <td>{{service.createdAt}}</td>
+                                                       <td class="text-center">
+                                                            <span class="label label-default"> {{service.connect?"banned":"active"}} </span>
+                                                       </td>
+                                                       <td>
+                                                            <a>{{service.email}}</a>
+                                                       </td>
+                                                       <td style="width: 20%;">
+                                                            <a class="table-link danger">
+                                                                 <span (click)="banned(service)" class="fa-stack" alt="banned">
+                                                                      <i class="fa fa-square fa-stack-2x"></i>
+                                                                      <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                                                 </span>
+                                                            </a>
+                                                       </td>
+                                                  </tr>
+
+                                             </tbody>
+                                        </table>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+
+               <br>
+               <br>
+               <br>
+
+               <!-- events table -->
+               <div class="row">
+                    <div class="col-lg-12">
+                         <div class="main-box no-header clearfix">
+                              <div class="main-box-body clearfix">
+                                   <div class="table-responsive">
+
+                                        <table class="table user-list">
+                                             <thead>
+                                                  <tr>
+                                                       <th><span>event</span></th>
+                                                       <th><span>event by</span></th>
+                                                       <th><span>Created</span></th>
+                                                       <th><span>city</span></th>
+                                                       <th class="text-center"><span>Status</span></th>
+                                                       <th><span>location</span></th>
+                                                       <th>phone</th>
+                                                       <th>like</th>
+                                                  </tr>
+                                             </thead>
+                                             <tbody>
+
+                                                  <tr *ngFor="let event of events">
+                                                       <td>
+                                                            <img src={{event.event_img}} alt="">
+                                                            <a href="#" class="user-link">{{event.title}}</a>
+                                                            <span class="user-subhead">{{event.eventBy}}</span>
+                                                       </td>
+                                                       <td>{{event.eventBy}}</td>
+                                                       <td>{{event.createdAt}}</td>
+                                                       <td>{{event.city}}</td>
+                                                       <td class="text-center">
+                                                            <span class="label label-default"> active </span>
+                                                       </td>
+                                                       <td>{{event.location}}</td>
+                                                       <td>{{event.contact}}</td>
+                                                       <td>{{event.likes}}</td>
+                                                       
+                                                  </tr>
+
+                                             </tbody>
+                                        </table>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+
+
+     </div>
+
+     <div *ngIf="!isLogged()" id="signin">
+          <div class="signin">
+               <h1>Admin Sign In </h1>
+               <form [formGroup]="form" (submit)="submit()">
+                    <div class="form-group">
+                         <label for="exampleInputUsername1">Username</label>
+                         <input formControlName="username" type="text" class="form-control" id="exampleInputUsername1"
+                              placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                         <label for="exampleInputPassword1">Password</label>
+                         <input formControlName="password" type="password" class="form-control"
+                              id="exampleInputPassword1" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign In</button>
+                    <label for="errorSignIn" class="form-text error-form">{{result === "Incorrect username/password" ?
+                         result : ""}}</label>
+               </form>
+          </div>
+     </div>
+</div>

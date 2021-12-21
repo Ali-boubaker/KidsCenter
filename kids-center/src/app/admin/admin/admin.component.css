@@ -1,0 +1,170 @@
+.admin{
+     margin: 0;
+}
+
+.spacer {
+     flex: 1;
+}
+
+.signin{
+     display:flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+.signin h1{
+     font-weight: 700;
+     color: rgb(140, 140, 140);
+     margin: 1rem 0;
+}
+
+form{
+     padding: 1rem 2rem;
+     background-color: rgb(240, 240, 240);
+     width: 500px;
+     border-radius: 5px;
+     box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.1);
+}
+
+form *{
+     margin: 0.3rem 0;
+}
+
+form button{
+     margin: 0.5rem 1rem 0 0;
+     padding: .2rem 1rem;
+}
+
+form span{
+     text-decoration: underline;
+     cursor: pointer;
+}
+
+.error-form{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: red;
+     font-size: 15px;
+     font-weight: 500;
+}
+
+.navbar {
+     position: relative;
+     top: 0;
+     left: 0;
+     right: 0;
+     height: 60px;
+     display: flex;
+     align-items: center;
+     background-color: hsl(200, 70%, 50%);
+     color: white;
+     font-size: 17px;
+     font-weight: 600;
+     padding: 0 1rem;
+}
+.navbar img {
+     margin-right: .5rem;
+}
+.navbar span {
+     text-decoration: none;
+     color: #fff;
+     background: transparent;
+     text-align: center;
+     position: relative;
+     cursor: pointer;
+     padding: 0.2rem 1rem;
+}
+.navbar span:before {
+     content: '';
+     position: absolute;
+     width: calc(100% + 4px);
+     height: calc(100% + 4px);
+     top: calc(2px/-1);
+     left: calc(2px/-1);
+     background: linear-gradient(to right, #fff 0%, #fff 100%), linear-gradient(to top, #fff 50%, transparent 50%), linear-gradient(to top, #fff 50%, transparent 50%), linear-gradient(to right, #fff 0%, #fff 100%), linear-gradient(to left, #fff 0%, #fff 100%);
+     background-size: 100% 2px, 2px 200%, 2px 200%, 0% 2px, 0% 2px;
+     background-position: 50% 100%, 0% 0%, 100% 0%, 100% 0%, 0% 0%;
+     background-repeat: no-repeat, no-repeat;
+     transition: transform 0.3s ease-in-out, background-position 0.3s ease-in-out, background-size 0.3s ease-in-out;
+     transform: scaleX(0) rotate(0deg);
+     transition-delay: 0.1s, 0.3s, 0s;
+}
+.navbar span:hover:before {
+     background-size: 200% 2px, 2px 400%, 2px 400%, 55% 2px, 55% 2px;
+     background-position: 50% 100%, 0% 100%, 100% 100%, 100% 0%, 0% 0%;
+     transform: scaleX(1) rotate(0deg);
+     transition-delay: 0s, 0.3s, 0.6s;
+}
+
+.user-logo{
+     width : 25px;
+     height: 25px;
+     border-radius: 50%;
+}
+
+.main-box.no-header {
+    padding-top: 20px;
+}
+.main-box {
+    background: #FFFFFF;
+    -webkit-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    -moz-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    -o-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    -ms-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    box-shadow: 1px 1px 2px 0 #CCCCCC;
+    margin-bottom: 16px;
+    -webikt-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.table a.table-link.danger {
+    color: #e74c3c;
+}
+.label {
+    border-radius: 3px;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+.user-list tbody td .user-subhead {
+    font-size: 0.875em;
+    font-style: italic;
+}
+.user-list tbody td .user-link {
+    display: block;
+    font-size: 1.25em;
+    padding-top: 3px;
+    margin-left: 60px;
+}
+a {
+    color: #3498db;
+    outline: none!important;
+}
+.user-list tbody td>img {
+    position: relative;
+    max-width: 50px;
+    float: left;
+    margin-right: 15px;
+}
+
+.table thead tr th {
+    text-transform: uppercase;
+    font-size: 0.875em;
+}
+.table thead tr th {
+    border-bottom: 2px solid #e7ebee;
+}
+.table tbody tr td:first-child {
+    font-size: 1.125em;
+    font-weight: 300;
+}
+.table tbody tr td {
+    font-size: 0.875em;
+    vertical-align: middle;
+    border-top: 1px solid #e7ebee;
+    padding: 12px 8px;
+}
+a:hover{
+text-decoration:none;
+}
+
